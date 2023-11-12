@@ -1,0 +1,63 @@
+.fa {
+	color: white;
+	text-decoration: none;
+	padding: 0.75rem;
+	border: 1px solid var(--primary);
+	width: 1rem;
+	height: 1rem;
+	text-align: center;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.25rem;
+}
+
+.fa-replit {
+	filter: grayscale(1) brightness(2);
+	cursor: pointer;
+}
+
+.fa-facebook:hover {
+	background-color: white;
+	color: #1877f2;
+}
+
+.fa-google:hover {
+	background-color: white;
+	color: green;
+}
+
+.fa-youtube:hover {
+	background-color: white;
+	color: #FF0000;
+}
+
+.fa-instagram:hover {
+	background-color: white;
+	color: #e56969;
+}
+
+.fa-github:hover {
+	background-color: white;
+	color: black;
+}
+
+.fa-replit:hover {
+	filter: grayscale(0) brightness(1);
+	background-color: white;
+}
+
+.social-container {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.social-inner {
+	display: flex;
+	width: 40%;
+	justify-content: space-around;
+	align-items: center;
+}
