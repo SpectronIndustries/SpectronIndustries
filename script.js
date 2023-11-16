@@ -1,10 +1,20 @@
 var str;
+var contentStr;
 var orStr = str;
 var rowAmount;
 var pageAmount;
 var pageNumber = 1;
 var index = 0;
 var debugMode = true;
+
+var titleArr;
+var descArr;
+var dateArr;
+var alignArr;
+var imgSrcArr;
+var btnArr;
+var linkArr;
+var flipArr;
 
 function startJS() {
 	fetch("https://spectron-industries.aaronwoodland.repl.co/content.txt")//OLD : content.txt
@@ -14,7 +24,15 @@ function startJS() {
 			orStr = text;
 			createContent();
 		})
-		.catch((e) => console.error(e));
+	.catch((e) => console.error(e));
+	
+	fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSnqcgS7JDifk3FrmQUgop_9lgiPfgOZ27ExFu4osYHOEoX2FG-rQXpjqN3Lrkd0SvxznIUBI1ppUpF/pub?gid=0&single=true&output=tsv")
+		.then((res) => res.text())
+		.then((text) => {
+			contentStr = text;
+			createContent();
+		})
+	.catch((e) => console.error(e));
 
 	document.getElementById("nav").innerHTML = `
 	 <div class="nav-inner">
@@ -61,6 +79,8 @@ function startJS() {
 };
 
 
+
+
 /* ===== Home Page ===== */
 function createContent() {
 	/* ===== Set variables ===== */
@@ -105,6 +125,16 @@ function createContent() {
 		str = str.slice(str.indexOf("#" + index));
 
 		/* ===== Set labels ===== */
+		
+		title = titleArr = getArray("Title")[index];
+		desc = descArr = getArray("Desc")[index];
+		date = dateArr = getArray("Date")[index];
+		align = alignArr = getArray("Align")[index];
+		imgSrc = imgSrcArr = getArray("ImgSrc")[index];
+		btn = btnArr = getArray("Btn")[index];
+		link = linkArr = getArray("Link")[index];
+		flip = flipArr = getArray("Flip")[index];
+
 		var title = str.slice(str.indexOf("Title: ") + 7, str.indexOf("Desc: ") - 1);
 		var desc = str.slice(str.indexOf("Desc: ") + 6, str.indexOf("Date: ") - 1);
 		var date = str.slice(str.indexOf("Date: ") + 6, str.indexOf("Align: ") - 1);
@@ -396,4 +426,10 @@ function toggleProjectRow(id, num) {
 			document.getElementById(id).classList = "project-row p-row-" + "left";
 		}
 	}
+}
+
+function getArray(arrayStr) {
+	var temp = contentStr.substring(contentStr.indexOf(arrayStr));
+	temp = temp.substring(temp.indexOf(arrayStr) + arrayStr.length + 1, temp.indexOf("\n") - 1);
+	return(temp.split("	"));
 }
