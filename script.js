@@ -21,8 +21,6 @@ function startJS() {
 		 <a style="cursor: pointer" onclick="toggleMenu()" class="material-symbols-outlined burger">menu</a>
 		 <a tabindex="1" class="nav-page" href="/IonicThruster/">Ionic Thruster</a>
 		 <a tabindex="2" class="nav-page" href="/ProjectAite/">Project Aite</a>
-		 <a tabindex="3" class="nav-page" href="/Tasers/">Tasers</a>
-		 <a tabindex="3" class="nav-page" href="/ElectricLighters/">Electric Lighters</a>
 		 <a tabindex="4" class="nav-page" href="/SpatioraProject/">The Spatiora Project</a>
 		 <img style="cursor: pointer" onclick="window.location.href = '../'" class="logo" src="../Assets/Img/Logos/LogoLongWhiteFixed.png">
 	 </div>
@@ -40,11 +38,13 @@ function startJS() {
 				 <hr class="menu-page" width="100%">
 				 <a tabindex="6" class="menu-page" href="/ProjectAite/">Project Aite</a>
 				 <hr class="menu-page" width="100%">
-				 <a tabindex="7" class="menu-page" href="/Tasers/">Tasers</a>
-				 <hr class="menu-page" width="100%">
-				 <a tabindex="7" class="menu-page" href="/ElectricLighters/">Electric Lighters</a>
-				 <hr class="menu-page" width="100%">
 				 <a tabindex="8" class="menu-page" href="/SpatioraProject/">The Spatiora Project</a>
+				 <hr class="menu-page" width="100%">
+				 <a tabindex="8" class="menu-page" href="/Tasers/">More Projects</a>
+				 <hr class="menu-page" width="100%">
+				 <a tabindex="8" class="menu-page" href="/ElectricLighters/">Elecric Lighters</a>
+				 <hr class="menu-page" width="100%">
+				 <a tabindex="8" class="menu-page" href="/MoreProjects/">More Projects</a>
 				 <hr width="100%">
 				 <a tabindex="9" href="/AboutUs/">ABOUT US</a>
 				 <hr width="100%">
