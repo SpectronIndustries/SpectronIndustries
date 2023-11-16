@@ -7,7 +7,7 @@ var index = 0;
 var debugMode = true;
 
 function startJS() {
-	fetch("content.txt")
+	fetch("https://spectron-industries.aaronwoodland.repl.co/content.txt")
 		.then((res) => res.text())
 		.then((text) => {
 			str = text;
