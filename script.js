@@ -7,7 +7,7 @@ var index = 0;
 var debugMode = true;
 
 function startJS() {
-	fetch("https://spectron-industries.aaronwoodland.repl.co/content.txt")
+	fetch("https://spectron-industries.aaronwoodland.repl.co/content.txt")//OLD : content.txt
 		.then((res) => res.text())
 		.then((text) => {
 			str = text;
