@@ -135,14 +135,14 @@ function createContent() {
 		link = linkArr = getArray("Link")[index];
 		flip = flipArr = getArray("Flip")[index];
 
-		var title = str.slice(str.indexOf("Title: ") + 7, str.indexOf("Desc: ") - 1);
-		var desc = str.slice(str.indexOf("Desc: ") + 6, str.indexOf("Date: ") - 1);
-		var date = str.slice(str.indexOf("Date: ") + 6, str.indexOf("Align: ") - 1);
-		var align = str.slice(str.indexOf("Align: ") + 7, str.indexOf("ImgSrc: ") - 1);
-		var imgSrc = str.slice(str.indexOf("ImgSrc: ") + 8, str.indexOf("Btn: ") - 1);
-		var btn = str.slice(str.indexOf("Btn: ") + 5, str.indexOf("Link: ") - 1);
-		var link = str.slice(str.indexOf("Link: ") + 6, str.indexOf("Flip: ") - 1);
-		var flip = str.slice(str.indexOf("Flip: ") + 6, str.indexOf("#E") - 1);
+		// var title = str.slice(str.indexOf("Title: ") + 7, str.indexOf("Desc: ") - 1);
+		// var desc = str.slice(str.indexOf("Desc: ") + 6, str.indexOf("Date: ") - 1);
+		// var date = str.slice(str.indexOf("Date: ") + 6, str.indexOf("Align: ") - 1);
+		// var align = str.slice(str.indexOf("Align: ") + 7, str.indexOf("ImgSrc: ") - 1);
+		// var imgSrc = str.slice(str.indexOf("ImgSrc: ") + 8, str.indexOf("Btn: ") - 1);
+		// var btn = str.slice(str.indexOf("Btn: ") + 5, str.indexOf("Link: ") - 1);
+		// var link = str.slice(str.indexOf("Link: ") + 6, str.indexOf("Flip: ") - 1);
+		// var flip = str.slice(str.indexOf("Flip: ") + 6, str.indexOf("#E") - 1);
 
 		/* ===== Log labels ===== */
 		if (debugMode == true) {
