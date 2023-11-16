@@ -40,7 +40,7 @@ function startJS() {
 				 <hr class="menu-page" width="100%">
 				 <a tabindex="8" class="menu-page" href="/SpatioraProject/">The Spatiora Project</a>
 				 <hr class="menu-page" width="100%">
-				 <a tabindex="8" class="menu-page" href="/Tasers/">More Projects</a>
+				 <a tabindex="8" class="menu-page" href="/Tasers/">Tasers</a>
 				 <hr class="menu-page" width="100%">
 				 <a tabindex="8" class="menu-page" href="/ElectricLighters/">Elecric Lighters</a>
 				 <hr class="menu-page" width="100%">
