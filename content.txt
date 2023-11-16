@@ -158,3 +158,14 @@ Btn: D
 Link: /IonicThruster
 Flip: H
 #E
+
+#6
+Title: Rocket Powered Derby Car
+Desc: 
+Date: 11 / 13 / 2023
+Align: L
+ImgSrc: /Assets/Img/Projects/RocketPoweredDerby.jpeg
+Btn: D
+Link: /IonicThruster
+Flip: H
+#E
