@@ -17,22 +17,22 @@ var linkArr;
 var flipArr;
 
 function startJS() {
-	fetch("https://spectron-industries.aaronwoodland.repl.co/content.txt")//OLD : content.txt
-		.then((res) => res.text())
-		.then((text) => {
-			str = text;
-			orStr = text;
-			createContent();
-		})
-	.catch((e) => console.error(e));
-	
-	fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSnqcgS7JDifk3FrmQUgop_9lgiPfgOZ27ExFu4osYHOEoX2FG-rQXpjqN3Lrkd0SvxznIUBI1ppUpF/pub?gid=0&single=true&output=tsv")
+	// fetch("https://spectron-industries.aaronwoodland.repl.co/content.txt")//OLD : content.txt
+	// 	.then((res) => res.text())
+	// 	.then((text) => {
+	// 		str = text;
+	// 		orStr = text;
+	// 		createContent();
+	// 	})
+	// 	.catch((e) => console.error(e));
+
+	fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQJxYholZM3M8anJ077bPS378hl9X8u5KG4dJVKFwz17Im9zqdvt2djQ7D9ZaMEq5btCjy8-QGqJjSt/pub?gid=371151479&single=true&output=tsv")
 		.then((res) => res.text())
 		.then((text) => {
 			contentStr = text;
 			createContent();
 		})
-	.catch((e) => console.error(e));
+		.catch((e) => console.error(e));
 
 	document.getElementById("nav").innerHTML = `
 	 <div class="nav-inner">
@@ -84,22 +84,26 @@ function startJS() {
 /* ===== Home Page ===== */
 function createContent() {
 	/* ===== Set variables ===== */
-	str = orStr;
-	str = str.slice(str.indexOf("@Amount: "));
-	var amount = parseInt(str.slice(str.indexOf("@Amount: ") + 9, str.indexOf("\n")));
+	// str = orStr;
+	// str = str.slice(str.indexOf("@Amount: "));
+	var amount = 7;
+	// var amount = parseInt(str.slice(str.indexOf("@Amount: ") + 9, str.indexOf("\n")));
 	rowAmount = amount;
 
-	str = orStr;
-	str = str.slice(str.indexOf("@PageAmount: "));
-	pageAmount = parseInt(str.slice(str.indexOf("@PageAmount: ") + 13, str.indexOf("\n")));
+	// str = orStr;
+	// str = str.slice(str.indexOf("@PageAmount: "));
+	// pageAmount = parseInt(str.slice(str.indexOf("@PageAmount: ") + 13, str.indexOf("\n")));
+	pageAmount = 7;
 
-	str = orStr;
-	str = str.slice(str.indexOf("@NullBack: "));
-	var nullBack = str.slice(str.indexOf("@NullBack: ") + 11, str.indexOf("\n"));
+	// str = orStr;
+	// str = str.slice(str.indexOf("@NullBack: "));
+	// var nullBack = str.slice(str.indexOf("@NullBack: ") + 11, str.indexOf("\n"));
+	var nullBack = "Img";
 
-	str = orStr;
-	str = str.slice(str.indexOf("@ImgGradient: "));
-	var imgGradient = str.slice(str.indexOf("@ImgGradient: ") + 14, str.indexOf("\n"));
+	// str = orStr;
+	// str = str.slice(str.indexOf("@ImgGradient: "));
+	// var imgGradient = str.slice(str.indexOf("@ImgGradient: ") + 14, str.indexOf("\n"));
+	var imgGradient = true;
 
 	/* ===== Log variables ===== */
 	if (debugMode == true) {
@@ -119,13 +123,13 @@ function createContent() {
 
 	for (index = index; index - (pageAmount * pageNumber) < 0; index++) {
 		/* ===== Set string to original string ===== */
-		str = orStr;
+		// str = orStr;
 
 		/* ===== Set string to current row ====== */
-		str = str.slice(str.indexOf("#" + index));
+		// str = str.slice(str.indexOf("#" + index));
 
 		/* ===== Set labels ===== */
-		
+
 		title = titleArr = getArray("Title")[index];
 		desc = descArr = getArray("Desc")[index];
 		date = dateArr = getArray("Date")[index];
@@ -431,5 +435,5 @@ function toggleProjectRow(id, num) {
 function getArray(arrayStr) {
 	var temp = contentStr.substring(contentStr.indexOf(arrayStr));
 	temp = temp.substring(temp.indexOf(arrayStr) + arrayStr.length + 1, temp.indexOf("\n") - 1);
-	return(temp.split("	"));
-}
+	return (temp.split("	"));
+}   
