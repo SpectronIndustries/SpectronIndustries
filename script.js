@@ -86,7 +86,7 @@ function createContent() {
 	/* ===== Set variables ===== */
 	// str = orStr;
 	// str = str.slice(str.indexOf("@Amount: "));
-	var amount = 7;
+	var amount = getArray("Title").length;
 	// var amount = parseInt(str.slice(str.indexOf("@Amount: ") + 9, str.indexOf("\n")));
 	rowAmount = amount;
 
@@ -130,6 +130,7 @@ function createContent() {
 
 		/* ===== Set labels ===== */
 
+		timestamp = timestampArr = getArray("Timestamp")[index].toLowerCase();
 		title = titleArr = getArray("Title")[index];
 		desc = descArr = getArray("Desc")[index];
 		date = dateArr = getArray("Date")[index];
@@ -148,163 +149,167 @@ function createContent() {
 		// var link = str.slice(str.indexOf("Link: ") + 6, str.indexOf("Flip: ") - 1);
 		// var flip = str.slice(str.indexOf("Flip: ") + 6, str.indexOf("#E") - 1);
 
-		/* ===== Log labels ===== */
-		if (debugMode == true) {
-			console.log("========== Row " + index + " ==========");
-			console.log("Title: [" + title + "]");
-			console.log("Desc: [" + desc + "]");
-			console.log("Date: [" + date + "]");
-			console.log("Align: [" + align + "]");
-			console.log("ImgSrc: [" + imgSrc + "]");
-			console.log("Btn: [" + btn + "]");
-			console.log("Link: [" + link + "]");
-			console.log("Flip: [" + flip + "]");
-		}
-
-
-		/* ===== Create row ===== */
-		var row = document.createElement('div');
-		row.classList.add('row');
-		row.id = 'row' + index;
-
-		/* ===== Create background image ===== */
-		var imgContainer = document.createElement('div');
-		imgContainer.classList.add('img-container');
-		var img = document.createElement('img');
-		/* ===== Set image to color or null image if no image avalible ===== */
-		if (imgSrc == "") {
-			if (nullBack == "Color") {
-				img.style.backgroundColor = "black";
-			} else if (nullBack == "Img") {
-				imgSrc = "../Assets/Img/Projects/nullImg.png";
+		if (timestamp != "@x") {
+			/* ===== Log labels ===== */
+			if (debugMode == true) {
+				console.log("========== Row " + index + " ==========");
+				console.log("Title: [" + title + "]");
+				console.log("Desc: [" + desc + "]");
+				console.log("Date: [" + date + "]");
+				console.log("Align: [" + align + "]");
+				console.log("ImgSrc: [" + imgSrc + "]");
+				console.log("Btn: [" + btn + "]");
+				console.log("Link: [" + link + "]");
+				console.log("Flip: [" + flip + "]");
 			}
-		}
-		img.src = imgSrc;
 
-		/* ===== Add image container ===== */
-		row.append(imgContainer);
 
-		/* ===== Create gradient ===== */
-		var gradient = document.createElement("div");
-		/* ===== Set image gradient Left, Center, or Right ===== */
-		if (true) {
-			gradient.classList.add("img-gradient");
+			/* ===== Create row ===== */
+			var row = document.createElement('div');
+			row.classList.add('row');
+			row.id = 'row' + index;
+
+			/* ===== Create background image ===== */
+			var imgContainer = document.createElement('div');
+			imgContainer.classList.add('img-container');
+			var img = document.createElement('img');
+			/* ===== Set image to color or null image if no image avalible ===== */
+			if (imgSrc == "") {
+				if (nullBack == "Color") {
+					img.style.backgroundColor = "black";
+				} else if (nullBack == "Img") {
+					imgSrc = "../Assets/Img/Projects/nullImg.png";
+				}
+			}
+			img.src = imgSrc;
+
+			/* ===== Add image container ===== */
+			row.append(imgContainer);
+
+			/* ===== Create gradient ===== */
+			var gradient = document.createElement("div");
+			/* ===== Set image gradient Left, Center, or Right ===== */
+			if (true) {
+				gradient.classList.add("img-gradient");
+				if (align == "L") {
+					gradient.classList.add('gradient-left');
+				} else if (align == "C") {
+					gradient.classList.add('gradient-center');
+				} else if (align == "R") {
+					gradient.classList.add('gradient-right');
+				}
+				imgContainer.append(gradient);
+			}
+
+			/* !NOT WORKING! */
+			/* ===== Flip image Horizontally, Vertically, or Both ===== */
+			if (flip == "H") {
+				img.style.transform = "scaleX(-1)";
+				gradient.style.zIndex = "1";
+			} else if (flip == "V") {
+				img.style.transform = "scaleY(-1)";
+				gradient.style.zIndex = "1";
+			} else if (flip == "B") {
+				img.style.transform = "scale(-1, -1)";
+				gradient.style.zIndex = "1";
+			}
+			/* ===== Add img ===== */
+			imgContainer.append(img);
+
+			/* ===== Create info container===== */
+			var infoContainer = document.createElement('div');
+			infoContainer.classList.add('info-container');
+			row.append(infoContainer);
+
+			/* ===== Align info Left, Center, or Right ===== */
 			if (align == "L") {
-				gradient.classList.add('gradient-left');
+				infoContainer.classList.add('info-left');
 			} else if (align == "C") {
-				gradient.classList.add('gradient-center');
+				infoContainer.classList.add('info-center');
 			} else if (align == "R") {
-				gradient.classList.add('gradient-right');
+				infoContainer.classList.add('info-right');
 			}
-			imgContainer.append(gradient);
-		}
 
-		/* !NOT WORKING! */
-		/* ===== Flip image Horizontally, Vertically, or Both ===== */
-		if (flip == "H") {
-			img.style.transform = "scaleX(-1)";
-			gradient.style.zIndex = "1";
-		} else if (flip == "V") {
-			img.style.transform = "scaleY(-1)";
-			gradient.style.zIndex = "1";
-		} else if (flip == "B") {
-			img.style.transform = "scale(-1, -1)";
-			gradient.style.zIndex = "1";
-		}
-		/* ===== Add img ===== */
-		imgContainer.append(img);
+			/* ===== Create info inner ===== */
+			var infoContainerInner = document.createElement('div');
+			infoContainerInner.classList.add('info-container-inner');
+			/* ===== Align info inner Left, Center, or Right ===== */
+			if (align == "L") {
+				infoContainerInner.classList.add('info-inner-left');
+			} else if (align == "C") {
+				infoContainerInner.classList.add('info-inner-center');
+			} else if (align == "R") {
+				infoContainerInner.classList.add('info-inner-right');
+			}
+			/* ===== Add info inner ===== */
+			infoContainer.append(infoContainerInner);
 
-		/* ===== Create info container===== */
-		var infoContainer = document.createElement('div');
-		infoContainer.classList.add('info-container');
-		row.append(infoContainer);
+			/* ===== Create info n next (info inner inner) ===== */
+			var infoNNext = document.createElement('div');
+			infoNNext.classList.add('info-n-next');
+			infoContainerInner.append(infoNNext);
 
-		/* ===== Align info Left, Center, or Right ===== */
-		if (align == "L") {
-			infoContainer.classList.add('info-left');
-		} else if (align == "C") {
-			infoContainer.classList.add('info-center');
-		} else if (align == "R") {
-			infoContainer.classList.add('info-right');
-		}
+			/* ===== Create next ===== */
+			var next = document.createElement('div');
+			next.classList.add('next');
+			var nextIcon = document.createElement('p');
+			nextIcon.classList = "material-symbols-outlined";
+			if (btn == "U" || btn == "B") {
+				nextIcon.innerHTML = "expand_less";
+				next.setAttribute("onclick", "window.location.href = '/#row' + (parseInt($(this).parent().parent().parent().parent().attr('id').substr(3)) + 1);");
+			} else {
+				nextIcon.innerHTML = "";
+				next.setAttribute("onclick", "");
+			}
 
-		/* ===== Create info inner ===== */
-		var infoContainerInner = document.createElement('div');
-		infoContainerInner.classList.add('info-container-inner');
-		/* ===== Align info inner Left, Center, or Right ===== */
-		if (align == "L") {
-			infoContainerInner.classList.add('info-inner-left');
-		} else if (align == "C") {
-			infoContainerInner.classList.add('info-inner-center');
-		} else if (align == "R") {
-			infoContainerInner.classList.add('info-inner-right');
-		}
-		/* ===== Add info inner ===== */
-		infoContainer.append(infoContainerInner);
+			/* ===== Add next ===== */
+			next.append(nextIcon);
+			infoNNext.append(next);
 
-		/* ===== Create info n next (info inner inner) ===== */
-		var infoNNext = document.createElement('div');
-		infoNNext.classList.add('info-n-next');
-		infoContainerInner.append(infoNNext);
+			/* ===== Create info ===== */
+			var info = document.createElement('div');
+			info.classList.add('info');
+			/* ===== Create info title ===== */
+			var infoTitle = document.createElement('h2');
+			infoTitle.innerHTML = title;
+			infoTitle.classList = "title";
+			infoTitle.setAttribute("onclick", "window.location.href = '" + link + "'"); info.appendChild(infoTitle);
+			infoTitle.setAttribute("tabindex", index + 9)
+			/* ===== Create info description ===== */
+			var infoDesc = document.createElement('p');
+			infoDesc.innerHTML = desc;
+			infoDesc.classList = "desc";
+			info.appendChild(infoDesc);
+			/* ===== Create info Date ===== */
+			var infoDate = document.createElement('i');
+			infoDate.innerHTML = date;
+			infoDate.classList = "date";
+			info.appendChild(infoDate);
 
-		/* ===== Create next ===== */
-		var next = document.createElement('div');
-		next.classList.add('next');
-		var nextIcon = document.createElement('p');
-		nextIcon.classList = "material-symbols-outlined";
-		if (btn == "U" || btn == "B") {
-			nextIcon.innerHTML = "expand_less";
-			next.setAttribute("onclick", "window.location.href = '/#row' + (parseInt($(this).parent().parent().parent().parent().attr('id').substr(3)) + 1);");
+			/* ===== Add info ===== */
+			infoNNext.append(info);
+
+			/* ===== Create Next ===== */
+			var next = document.createElement('div');
+			next.classList.add('next');
+			var nextIcon = document.createElement('p');
+			nextIcon.classList = "material-symbols-outlined";
+			if (btn == "D" || btn == "B") {
+				nextIcon.innerHTML = "expand_more";
+				next.setAttribute("onclick", "window.location.href = '/#row' + (parseInt($(this).parent().parent().parent().parent().attr('id').substr(3)) - 1);");
+			} else {
+				nextIcon.innerHTML = "";
+				next.setAttribute("onclick", "");
+			}
+			/* ===== Add next ===== */
+			next.append(nextIcon);
+			infoNNext.append(next);
+
+			/* ===== Add row (ADD ALL) ===== */
+			$("#content").append(row);
 		} else {
-			nextIcon.innerHTML = "";
-			next.setAttribute("onclick", "");
+			console.log("-----------> " + timestamp);
 		}
-
-		/* ===== Add next ===== */
-		next.append(nextIcon);
-		infoNNext.append(next);
-
-		/* ===== Create info ===== */
-		var info = document.createElement('div');
-		info.classList.add('info');
-		/* ===== Create info title ===== */
-		var infoTitle = document.createElement('h2');
-		infoTitle.innerHTML = title;
-		infoTitle.classList = "title";
-		infoTitle.setAttribute("onclick", "window.location.href = '" + link + "'"); info.appendChild(infoTitle);
-		infoTitle.setAttribute("tabindex", index + 9)
-		/* ===== Create info description ===== */
-		var infoDesc = document.createElement('p');
-		infoDesc.innerHTML = desc;
-		infoDesc.classList = "desc";
-		info.appendChild(infoDesc);
-		/* ===== Create info Date ===== */
-		var infoDate = document.createElement('i');
-		infoDate.innerHTML = date;
-		infoDate.classList = "date";
-		info.appendChild(infoDate);
-
-		/* ===== Add info ===== */
-		infoNNext.append(info);
-
-		/* ===== Create Next ===== */
-		var next = document.createElement('div');
-		next.classList.add('next');
-		var nextIcon = document.createElement('p');
-		nextIcon.classList = "material-symbols-outlined";
-		if (btn == "D" || btn == "B") {
-			nextIcon.innerHTML = "expand_more";
-			next.setAttribute("onclick", "window.location.href = '/#row' + (parseInt($(this).parent().parent().parent().parent().attr('id').substr(3)) - 1);");
-		} else {
-			nextIcon.innerHTML = "";
-			next.setAttribute("onclick", "");
-		}
-		/* ===== Add next ===== */
-		next.append(nextIcon);
-		infoNNext.append(next);
-
-		/* ===== Add row (ADD ALL) ===== */
-		$("#content").append(row);
 	}
 }
 
@@ -436,4 +441,4 @@ function getArray(arrayStr) {
 	var temp = contentStr.substring(contentStr.indexOf(arrayStr));
 	temp = temp.substring(temp.indexOf(arrayStr) + arrayStr.length + 1, temp.indexOf("\n") - 1);
 	return (temp.split("	"));
-}   
+}
