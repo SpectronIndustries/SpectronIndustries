@@ -86,7 +86,7 @@ function createContent() {
 	/* ===== Set variables ===== */
 	// str = orStr;
 	// str = str.slice(str.indexOf("@Amount: "));
-	var amount = getArray("Title").length;
+	var amount = getArray("Title",contentStr).length;
 	// var amount = parseInt(str.slice(str.indexOf("@Amount: ") + 9, str.indexOf("\n")));
 	rowAmount = amount;
 
@@ -130,15 +130,15 @@ function createContent() {
 
 		/* ===== Set labels ===== */
 
-		timestamp = timestampArr = getArray("Timestamp")[index].toLowerCase();
-		title = titleArr = getArray("Title")[index];
-		desc = descArr = getArray("Desc")[index];
-		date = dateArr = getArray("Date")[index];
-		align = alignArr = getArray("Align")[index];
-		imgSrc = imgSrcArr = getArray("ImgSrc")[index];
-		btn = btnArr = getArray("Btn")[index];
-		link = linkArr = getArray("Link")[index];
-		flip = flipArr = getArray("Flip")[index];
+		timestamp = timestampArr = getArray("Timestamp", contentStr)[index].toLowerCase();
+		title = titleArr = getArray("Title", contentStr)[index];
+		desc = descArr = getArray("Desc", contentStr)[index];
+		date = dateArr = getArray("Date", contentStr)[index];
+		align = alignArr = getArray("Align", contentStr)[index];
+		imgSrc = imgSrcArr = getArray("ImgSrc", contentStr)[index];
+		btn = btnArr = getArray("Btn", contentStr)[index];
+		link = linkArr = getArray("Link", contentStr)[index];
+		flip = flipArr = getArray("Flip", contentStr)[index];
 
 		// var title = str.slice(str.indexOf("Title: ") + 7, str.indexOf("Desc: ") - 1);
 		// var desc = str.slice(str.indexOf("Desc: ") + 6, str.indexOf("Date: ") - 1);
@@ -437,8 +437,39 @@ function toggleProjectRow(id, num) {
 	}
 }
 
-function getArray(arrayStr) {
-	var temp = contentStr.substring(contentStr.indexOf(arrayStr));
+
+function getArray(arrayStr, contentString) {
+	var temp = contentString.substring(contentString.indexOf(arrayStr));
 	temp = temp.substring(temp.indexOf(arrayStr) + arrayStr.length + 1, temp.indexOf("\n") - 1);
 	return (temp.split("	"));
+}
+
+
+function createProjectRows(fetchedStr) {
+	for (let index = 0; index < getArray("Timestamp", fetchedStr).length; index++) {
+		var row = document.createElement("div");
+		row.classList = "project-row p-row-out";
+		row.id = "pRow" + index;
+
+		var rowVid = document.createElement("video");
+		rowVid.autoplay = true;
+		rowVid.muted = true;
+		rowVid.loop = true;
+		var rowVidSrc = document.createElement("source");
+		rowVidSrc.src = getArray("VidImgSrc", fetchedStr)[index];
+		rowVidSrc.type = "video/mp4";
+
+
+		$("#projectContainer").append(row);
+		row.append(rowVid);
+		rowVid.append(rowVidSrc);
+		console.log(getArray("Title", fetchedStr)[index]);
+		console.log(getArray("Desc", fetchedStr)[index]);
+		console.log(getArray("Date", fetchedStr)[index]);
+		console.log(getArray("Align", fetchedStr)[index]);
+		console.log(getArray("VidOrImg", fetchedStr)[index]);
+		console.log(getArray("VidImgSrc", fetchedStr)[index]);
+		console.log(getArray("Link", fetchedStr)[index]);
+		console.log(getArray("Flip", fetchedStr)[index]);
+	}
 }
