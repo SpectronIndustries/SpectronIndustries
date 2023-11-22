@@ -462,13 +462,20 @@ function createProjectRows(fetchedStr) {
 		rowVidSrc.src = getArray("VidImgSrc", fetchedStr)[index];
 		rowVidSrc.type = "video/mp4";
 
+		var rowText = document.createElement("div");
+		rowText.classList = "project-text";
+		var rowTitle = document.createElement("h2");
+		rowTitle.innerHTML = getArray("Title", fetchedStr)[index];
+		var rowDesc = document.createElement("p");
+		rowDesc.innerHTML = getArray("Desc", fetchedStr)[index];
+
 
 		$("#projectContainer").append(row);
 		row.append(rowVid);
 		rowVid.append(rowVidSrc);
-		console.log(getArray("Title", fetchedStr)[index]);
-		console.log(getArray("Desc", fetchedStr)[index]);
-		console.log(getArray("Date", fetchedStr)[index]);
+		row.append(rowText);
+		rowText.append(rowTitle);
+		rowText.append(rowDesc);
 		console.log(getArray("Align", fetchedStr)[index]);
 		console.log(getArray("VidOrImg", fetchedStr)[index]);
 		console.log(getArray("VidImgSrc", fetchedStr)[index]);
