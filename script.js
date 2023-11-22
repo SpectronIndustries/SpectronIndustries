@@ -72,9 +72,7 @@ function startJS() {
 
 	/* ===== Project Page ===== */
 	if (document.getElementById("projectContainer")) {
-		for (let i = 0; i < document.getElementById("projectContainer").childElementCount; i++) {
-			$(document.getElementById("projectContainer")).children().eq(i).attr("id", "pRow" + i);
-		}
+		setRowIds();
 	}
 };
 
@@ -444,6 +442,11 @@ function getArray(arrayStr, contentString) {
 	return (temp.split("	"));
 }
 
+function setRowIds() {
+	for (let i = 0; i < document.getElementById("projectContainer").childElementCount; i++) {
+		$(document.getElementById("projectContainer")).children().eq(i).attr("id", "pRow" + i);
+	}
+}
 
 function createProjectRows(fetchedStr) {
 	for (let index = 0; index < getArray("Timestamp", fetchedStr).length; index++) {
@@ -471,5 +474,6 @@ function createProjectRows(fetchedStr) {
 		console.log(getArray("VidImgSrc", fetchedStr)[index]);
 		console.log(getArray("Link", fetchedStr)[index]);
 		console.log(getArray("Flip", fetchedStr)[index]);
+		setRowIds();
 	}
 }
