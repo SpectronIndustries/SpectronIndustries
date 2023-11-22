@@ -454,13 +454,18 @@ function createProjectRows(fetchedStr) {
 		row.classList = "project-row p-row-out";
 		row.id = "pRow" + index;
 
-		var rowVid = document.createElement("video");
-		rowVid.autoplay = true;
-		rowVid.muted = true;
-		rowVid.loop = true;
-		var rowVidSrc = document.createElement("source");
-		rowVidSrc.src = getArray("VidImgSrc", fetchedStr)[index];
-		rowVidSrc.type = "video/mp4";
+		if(getArray("VidOrImg", fetchedStr)[index] == "Video") {
+			var rowVid = document.createElement("video");
+			rowVid.autoplay = true;
+			rowVid.muted = true;
+			rowVid.loop = true;
+			var rowVidSrc = document.createElement("source");
+			rowVidSrc.src = getArray("VidImgSrc", fetchedStr)[index];
+			rowVidSrc.type = "video/mp4";
+		} else {
+			var rowImg = document.createElement("img");
+			rowImg.src = getArray("VidImgSrc", fetchedStr)[index];
+		}
 
 		var rowText = document.createElement("div");
 		rowText.classList = "project-text";
@@ -471,8 +476,12 @@ function createProjectRows(fetchedStr) {
 
 
 		$("#projectContainer").append(row);
-		row.append(rowVid);
-		rowVid.append(rowVidSrc);
+		if(getArray("VidOrImg", fetchedStr)[index] == "Video") {
+			row.append(rowVid);
+			rowVid.append(rowVidSrc);
+		} else {
+			row.append(rowImg);
+		}
 		row.append(rowText);
 		rowText.append(rowTitle);
 		rowText.append(rowDesc);
