@@ -2,6 +2,30 @@
 <html>
 
 <head>
+	<!-- FIREBASE -->
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+		  apiKey: "AIzaSyC_BFrMDpd9aVewlosS1JUhrqK_EqYPMEw",
+		  authDomain: "dazzling-mote-348223.firebaseapp.com",
+		  projectId: "dazzling-mote-348223",
+		  storageBucket: "dazzling-mote-348223.appspot.com",
+		  messagingSenderId: "379038777016",
+		  appId: "1:379038777016:web:9a248cfc0496cc87e97e4d",
+		  measurementId: "G-1K557X52KQ"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	</script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-LVJHVZ1S1G"></script>
 	<script>
