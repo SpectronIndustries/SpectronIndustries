@@ -119,7 +119,9 @@ function createContent() {
 		console.log("========== ERROR ==========");
 	}
 
-	for (index = amount; index - (pageAmount * pageNumber) < 0; index--) {
+	for(index = index; (index - pageAmount) > 0;)
+	for (forIndex = amount; forIndex > 0; forIndex--) {
+		index = forIndex;
 		/* ===== Set string to original string ===== */
 		// str = orStr;
 
