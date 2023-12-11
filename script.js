@@ -449,7 +449,7 @@ function setRowIds() {
 }
 
 function createProjectRows(fetchedStr) {
-	for (let index = 0; index < getArray("Timestamp", fetchedStr).length; index++) {
+	for (let index = getArray("Timestamp", fetchedStr).length; index > getArray("Timestamp", fetchedStr).length; index--) {
 		var row = document.createElement("div");
 		row.classList = "project-row p-row-out";
 		row.id = "pRow" + index;
