@@ -77,6 +77,9 @@ function startJS() {
 };
 
 
+function setPageText() {
+	$("#pageText").html("Page " + pageNumber + " of " + Math.ceil(rowAmount / pageAmount));
+}
 
 
 /* ===== Home Page ===== */
@@ -113,16 +116,16 @@ function createContent() {
 		console.log("ImgGradient: [" + imgGradient + "]");
 	}
 
-	$('#pageText').html('Page ' + pageNumber + ' of ' + (rowAmount / pageAmount));
+	setPageText();
 
 	if (!(index - ((pageAmount) * (pageNumber - 1)) < pageAmount)) {
 		console.log("========== ERROR ==========");
 	}
 
-	for(index = index; (index - pageAmount) > 0;) {
-		for (forIndex = amount; forIndex > 0; forIndex--) {
-			index = forIndex;
-			/* ===== Set string to original string ===== */
+	for(index = amount; (index - (pageAmount)) > 0;) {
+		for (index = amount - 1; (index - (pageAmount * pageNumber)) > (amount - (pageAmount * (pageNumber + 1))); index--) {
+			//index = forIndex;
+			/* ===== Set stri/=ng to original string ===== */
 			// str = orStr;
 
 			/* ===== Set string to current row ====== */
@@ -201,7 +204,6 @@ function createContent() {
 					imgContainer.append(gradient);
 				}
 
-				/* !NOT WORKING! */
 				/* ===== Flip image Horizontally, Vertically, or Both ===== */
 				if (flip == "H") {
 					img.style.transform = "scaleX(-1)";
@@ -372,20 +374,20 @@ function prevPage() {
 		index = index - (pageAmount * pageNumber);
 		pageNumber = pageNumber - 1;
 		createContent();
+		window.location.href = "/#row" + (index - rowAmount);
+		setPageText();
 	}
-	window.location.href = "/#row" + (index - rowAmount);
-	$("#pageText").html("Page " + pageNumber + " of " + (rowAmount / pageAmount));
 }
 
 function nextPage() {
-	if (pageNumber < (rowAmount / index)) {
+	if (pageNumber < Math.ceil(rowAmount / pageAmount)) {
 		deleteContent();
 		index = index - (pageAmount * pageNumber);
-		pageNumber = pageNumber - 1;
+		pageNumber = pageNumber + 1;
 		createContent();
+		window.location.href = "/#row" + (index - rowAmount);
+		setPageText();
 	}
-	window.location.href = "/#row" + (index - rowAmount);
-	$("#pageText").html("Page " + pageNumber + " of " + (rowAmount / pageAmount));
 }
 
 

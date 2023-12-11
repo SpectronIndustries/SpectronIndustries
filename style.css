@@ -476,7 +476,19 @@ body {
 
 .turn-page-container {
 	width: 100%;
-	height: 5rem;
+	height: 3.5rem;
+	position: fixed;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(0.5rem);
+	-webkit-backdrop-filter: blur(0.5rem);
+	z-index: 999;
+	-webkit-user-select: none;
+	/* Safari */
+	-ms-user-select: none;
+	/* IE 10 and IE 11 */
+	user-select: none;
+	/* Standard syntax */
 }
 
 .turn-page {
