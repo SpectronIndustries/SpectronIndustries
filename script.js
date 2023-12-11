@@ -119,7 +119,7 @@ function createContent() {
 		console.log("========== ERROR ==========");
 	}
 
-	for (index = index; index - (pageAmount * pageNumber) < 0; index++) {
+	for (index = amount; index - (pageAmount * pageNumber) < 0; index--) {
 		/* ===== Set string to original string ===== */
 		// str = orStr;
 
@@ -377,8 +377,8 @@ function prevPage() {
 function nextPage() {
 	if (pageNumber < (rowAmount / index)) {
 		deleteContent();
-		index -= 1;
-		pageNumber += 1;
+		index = index - (pageAmount * pageNumber);
+		pageNumber = pageNumber - 1;
 		createContent();
 	}
 	window.location.href = "/#row" + (index - rowAmount);
@@ -449,7 +449,7 @@ function setRowIds() {
 }
 
 function createProjectRows(fetchedStr) {
-	for (let index = getArray("Timestamp", fetchedStr).length; index > getArray("Timestamp", fetchedStr).length; index--) {
+	for (let index = 0; index < getArray("Timestamp", fetchedStr).length; index++) {
 		var row = document.createElement("div");
 		row.classList = "project-row p-row-out";
 		row.id = "pRow" + index;
