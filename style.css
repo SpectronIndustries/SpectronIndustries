@@ -99,6 +99,10 @@ body {
 	.project-text-outline p {
 		text-align: justify;
 	}
+
+	.text-center {
+		text-align: center;
+	}
 }
 
 /* ===== Mobile ===== */
@@ -169,6 +173,10 @@ body {
 	.project-text p,
 	.project-text-outline p {
 		text-align: initial;
+	}
+
+	.text-center {
+		text-align: center;
 	}
 }
 
