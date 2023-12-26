@@ -99,10 +99,6 @@ body {
 	.project-text-outline p {
 		text-align: justify;
 	}
-
-	.text-center {
-		text-align: center;
-	}
 }
 
 /* ===== Mobile ===== */
@@ -173,10 +169,6 @@ body {
 	.project-text p,
 	.project-text-outline p {
 		text-align: initial;
-	}
-
-	.text-center {
-		text-align: center;
 	}
 }
 
@@ -635,7 +627,6 @@ body {
 	font-size: 1.5rem;
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
 	align-items: flex-start;
 	overflow-y: auto;
 	max-height: 100%;
