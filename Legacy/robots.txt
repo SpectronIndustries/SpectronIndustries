@@ -1,0 +1,8 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+Disallow: /google5477e34dd64a5a48.html
+
+User-agent: *
+Allow: /
+
+Sitemap: https://spectron-industries.aaronwoodland.repl.co/sitemap.xml

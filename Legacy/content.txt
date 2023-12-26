@@ -1,0 +1,171 @@
+-------------------------------------------------------------------------------------------------------------
+                              IMPORTANT NOTES / INSTRUCTIONS (READ ONLY)
+-------------------------------------------------------------------------------------------------------------
+
+REGARDING VARIABLES:
+- Amount -> changes the amount of rows there are (Max ID NUMBERs - 1).
+- NullBack -> if an image does not load or if the row does not have an image, it will set the background to ("Img: nullImg" OR "Color: Black")
+- ImgGradient -> if true, it will show an image gradient over the image to better balance the content and the images
+
+REGARDING THE TEMPLATE: 
+- Do not delete the space between the lables and the content
+↳ Title: hello world
+↳       ^
+↳   DONT DELETE
+
+- Do not edit the labels
+
+- A label is "Title: ", "Desc: ", "Date: ", etc.
+
+- An underscore is where letters, numbers, <i>, <a>, <br>, <hr>, <h#>, etc. Just make sure that if you put anything in it, it needs to be with HTML rules inside a <p>.
+↳ Title: Very Cool Car <br> <i>-20°C</i>
+
+- You may include a new line in the labels except ImgSrc through Link. But, if you do include a new line it will not show as a new line on the website. It will only show as a space.
+↳ Title: Hello
+↳ World
+
+- The "ID NUMBER" starts at 0 and begins counting up
+
+- When you add a new row, do not forget to add the "Amount: " by 1. (THE AMOUNT IS AT THE TOP)
+
+- When editing Align
+↳ L -> Left Align the container
+↳ C -> Center Align the container
+↳ R -> Right Align the container
+
+- When editing Btn
+↳ U -> Up button is shown
+↳ D -> Down button is shown
+↳ B -> Both buttons are shown
+
+- When editing Flip
+↳ H -> Flip image horizontally
+↳ V -> Flip image vertically
+↳ B -> Flip both sides
+↳ N -> Do not flip image
+
+
+-------------------------------------------------------------------------------------------------------------
+                                               TEMPLATE (COPY)
+-------------------------------------------------------------------------------------------------------------
+#(ID NUMBER)
+Title: ____
+Desc: ____
+Date: ____
+Align: L , C , R
+ImgSrc: https:// , ../
+Btn: U , D , B
+Link: https:// , ../
+Flip: H, V, N
+#E
+
+-------------------------------------------------------------------------------------------------------------
+																							 HTML (READ ONLY)
+-------------------------------------------------------------------------------------------------------------
+% <div class="row" id="row0">
+% 	<div class="img-container">
+% 		<img src="/Assets/Img/Projects/IonicThrusterv3.jpeg">
+% 	</div><div class="info-container info-left">
+% 		<div class="info-container-inner info-inner-left">
+% 			<div class="info-n-next">
+% 				<div class="info">
+% 					<h2 class="title" onclick="window.location.href = 'https://replit.com/@AARONWOODLAND/Spectron-Industries#content.txt'">Ionic Thruster V. 03</h2>
+% 					<p class="desc">hello world</p>
+% 					<i class="date">10 / 08 / 2023</i>
+% 				</div><div class="next" onclick="window.location.href = '/#row' + (parseInt($(this).parent().parent().parent().parent().attr('id').substr(3)) + 1);">
+% 					<p class="material-symbols-outlined">expand_more</p>
+% 				</div>
+% 			</div>
+% 		</div>
+% 	</div>
+% </div>
+
+-------------------------------------------------------------------------------------------------------------
+                              -------------> VARIABLES (EDIT) <-------------
+-------------------------------------------------------------------------------------------------------------
+
+@Amount: 7
+@PageAmount: 6
+@NullBack: Img
+@ImgGradient: true
+
+-------------------------------------------------------------------------------------------------------------
+                               -------------> CONTENT (EDIT) <-------------
+-------------------------------------------------------------------------------------------------------------
+
+#0
+Title: Knuckle Taser V. 02
+Desc: Powered by two 9V batteries, this thing you can shock your enemys!
+Date: 09 / 16 / 2023
+Align: L
+ImgSrc: /Assets/Img/Projects/KnuckleTaserv2.jpeg
+Btn: U
+Link:/Tasers
+Flip: N
+#E
+
+#1
+Title: Electric Lighter V. 04
+Desc: 
+Date: 03 / 17 / 2023
+Align: R
+ImgSrc: /Assets/Img/Projects/ELv4.jpeg
+Btn: B
+Link: /ElectricLighters
+Flip: N
+#E
+
+#2
+Title: Flame Thrower
+Desc: Flame Thrower using a Nerf Retaliator Elite
+Date: 07 / 03 / 2023
+Align: L
+ImgSrc: /Assets/Img/Projects/FlameThrower.jpeg
+Btn: B
+Link: #
+Flip: N
+#E
+
+#3
+Title: Project Aite: <br> Module Prototype V. 03
+Desc: 
+Date: 09 / 16 / 2023
+Align: R
+ImgSrc: /Assets/Img/Projects/AiteModulePrototypev3.jpeg
+Btn: B
+Link: /ProjectAite
+Flip: N
+#E
+
+#4
+Title: Ionic Thruster V. 03
+Desc: 
+Date: 10 / 08 / 2023
+Align: L
+ImgSrc: /Assets/Img/Projects/IonicThrusterWireframeBlk.png
+Btn: B
+Link: /IonicThruster
+Flip: N
+#E
+
+#5
+Title: Ionic Thruster V. 04
+Desc: 
+Date: 10 / 26 / 2023
+Align: R
+ImgSrc: /Assets/Img/Projects/IonicThrusterv4.jpeg
+Btn: D
+Link: /IonicThruster
+Flip: H
+#E
+
+#6
+Title: Rocket Powered Derby Car
+Desc: 
+Date: 11 / 13 / 2023
+Align: L
+ImgSrc: /Assets/Img/Projects/RocketPoweredDerby.jpeg
+Btn: D
+Link: /MoreProjects
+Flip: H
+#E
