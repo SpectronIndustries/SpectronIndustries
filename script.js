@@ -56,17 +56,19 @@ function startJS() {
 				 <hr class="menu-page" width="100%">
 				 <a tabindex="6" class="menu-page" href="/ProjectAite/">Project Aite</a>
 				 <hr class="menu-page" width="100%">
-				 <a tabindex="8" class="menu-page" href="/SpatioraProject/">The Spatiora Project</a>
+				 <a tabindex="7" class="menu-page" href="/SpatioraProject/">The Spatiora Project</a>
 				 <hr class="menu-page" width="100%">
 				 <a tabindex="8" class="menu-page" href="/Tasers/">Tasers</a>
 				 <hr class="menu-page" width="100%">
-				 <a tabindex="8" class="menu-page" href="/ElectricLighters/">Elecric Lighters</a>
+				 <a tabindex="9" class="menu-page" href="/ElectricLighters/">Elecric Lighters</a>
 				 <hr class="menu-page" width="100%">
-				 <a tabindex="8" class="menu-page" href="/MoreProjects/">More Projects</a>
+				 <a tabindex="10" class="menu-page" href="/MoreProjects/">More Projects</a>
+				 <hr class="menu-page" width="100%">
+				 <a tabindex="11" class="menu-page" href="/Products/">Products</a>
 				 <!--<hr class="menu-page" width="100%">
-				 <a tabindex="8" class="menu-page" href="/Legacy/">Legacy</a>-->
+				 <a tabindex="12" class="menu-page" href="/Legacy/">Legacy</a>-->
 				 <hr width="100%">
-				 <a tabindex="9" href="/AboutUs/">ABOUT US</a>
+				 <a tabindex="12" href="/AboutUs/">About Us</a>
 				 <hr width="100%">
 			 </div>
 		 </div>
