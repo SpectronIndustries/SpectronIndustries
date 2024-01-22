@@ -7,6 +7,24 @@ var products = [
         date: "04 / 2027",
         price: 49.99
     },
+
+    {
+        title: "Paper",
+        img: "https://www.rubicon.com/wp-content/uploads/2022/01/newspaper-bundles-for-paper-recycling.jpg",
+        desc: "Just alot of paper...",
+        url: "../MoreProjects/",
+        date: "04 / 2024",
+        price: 10.25
+    },
+
+    {
+        title: "Phone",
+        img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        desc: "Wow a phone! You dont see that every day...",
+        url: "../MoreProjects/",
+        date: "04 / 1982",
+        price: 503.52
+    },
 ]
 
 function displayProduct(productNum) {
@@ -16,5 +34,5 @@ function displayProduct(productNum) {
 
     document.getElementById("productBtnsUrl").href = products[productNum].url;
     document.getElementById("productBtnsDate").innerHTML = products[productNum].date;
-    document.getElementById("productBtnsPrice").innerHTML = products[productNum].price;
+    document.getElementById("productBtnsPrice").innerHTML = "$ " + products[productNum].price;
 }
