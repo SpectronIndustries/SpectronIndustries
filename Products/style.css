@@ -1,5 +1,14 @@
 /* ===== Desktop ====== */
 @media only screen and (min-width: 601px) {
+
+    .product-list {
+        flex-direction: row;
+    }
+
+    .product-icon, .product-icon-sel {
+        width: 150px;
+    }
+
     .product-info {
         flex-direction: row;
     }
@@ -27,10 +36,40 @@
     .product-btns a, .product-btns p {
         width: 20%;
     }
+
+    .product-lg-container {
+        padding: calc(50px);
+        height: 100%;
+    }
+    
+    .product-lg {
+        width: calc(100% - 100px);
+        border: 1px solid white;
+        border-radius: 15px;
+        backdrop-filter: brightness(68%);
+    }
+    
+    .product-icon, .product-icon-sel {
+        height: 150px;
+    }
+    
+    .product-info-txt {
+        width: 75%;
+    }
 }
 
 /* ===== Mobile ===== */
 @media only screen and (max-width: 600px) {
+
+    .product-list {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .product-icon, .product-icon-sel {
+        width: 85%;
+    }
+
     .product-info {
         flex-direction: column;
     }
@@ -58,6 +97,23 @@
     .product-btns a, .product-btns p {
         width: 50%;
     }
+
+    .product-lg-container {
+        padding: 0px;
+        height: 800px;
+    }
+
+    .product-lg {
+        width: calc(100% - 0px);
+    }
+    
+    .product-icon, .product-icon-sel {
+        height: 50px;
+    }
+    
+    .product-info-txt {
+        width: 100%;
+    }
 }
 
 .products {
@@ -69,7 +125,6 @@
 
 .product-list {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     /* height: 30%; */
@@ -81,8 +136,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 150px; /*calc((800 / 8) - (50px))*/
+    /* width: 150px; */
+    /*height: 150px; */
     border: 1px solid white;
     border-radius: 15px;
     backdrop-filter: blur(8px);
@@ -137,18 +192,17 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    padding: calc(50px);
+    /* padding: calc(50px); */
 }
 
 .product-lg {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 100px);
+    /* width: calc(100% - 100px); */
     /* height: 100%; */
-    border: 1px solid white;
+    /* border: 1px solid white;
     border-radius: 15px;
-    backdrop-filter: brightness(68%);
+    backdrop-filter: brightness(68%); */
     overflow-y: scroll;
 }
 
@@ -173,7 +227,7 @@
 }
 
 .product-info-txt {
-    width: 75%;
+    /* width: 75%; */
     font-size: large;
 }
 
