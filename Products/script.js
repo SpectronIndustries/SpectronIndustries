@@ -9,7 +9,7 @@ var products = [
     },
 
     {
-        title: "Paper",
+        title: "Ruined Vortex",
         img: "https://www.rubicon.com/wp-content/uploads/2022/01/newspaper-bundles-for-paper-recycling.jpg",
         desc: "The Ruined Vortex is a cool desk gadet you can get as a gift or for yourself. When you flip the switch it spins and will light up.",
         url: "Order/",
@@ -18,7 +18,7 @@ var products = [
     },
 
     {
-        title: "Phone",
+        title: "Astral Hawk Drone",
         img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         desc: "The Astral Hawk Drone is the first version of the Astral Hawk. Like the Real Cargo ship that will be built in the future this version has the thrust on the corners, but with fan blades.",
         url: "Order/",
